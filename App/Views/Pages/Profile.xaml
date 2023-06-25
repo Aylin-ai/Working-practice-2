@@ -5,8 +5,85 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyApplication.Views.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="600" d:DesignWidth="1200"
+             Background="White">
+    <DockPanel LastChildFill="True">
+
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Left"
+                    Margin="10">
+
+            <Label Content="Профиль"
+                   FontSize="40"
+                   FontWeight="SemiBold"/>
+
+            <Label Content="Учётная запись"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"
+                   Margin="0 50 0 0"
+                   IsEnabled="False"/>
+
+            <Label Content="Документы и данные"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
+            <Label Content="Заявки"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
+        </StackPanel>
+
+        <Border Margin="150" BorderBrush="Black" BorderThickness="1">
+            <StackPanel>
+
+                <Label Content="ФИО"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       Margin="10"/>
+
+                <WrapPanel>
+                    <Label Content="Номер телефона"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="10"/>
+                    <Label Content="Изменить"
+                           FontSize="20"
+                           Foreground="DarkBlue"
+                           Margin="10"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Email"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="10"/>
+                    <Label Content="Изменить"
+                           FontSize="20"
+                           Foreground="DarkBlue"
+                           Margin="10"/>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <Label Content="Пароль"
+                           FontSize="20"
+                           FontWeight="SemiBold"
+                           Margin="10"/>
+                    <Label Content="Изменить"
+                           FontSize="20"
+                           Foreground="DarkBlue"
+                           Margin="10"/>
+                </WrapPanel>
+
+                <Label Content="Удалить учётную запись"
+                       FontSize="20"
+                       Foreground="DarkBlue"
+                       Margin="10"/>
+
+            </StackPanel>
+        </Border>
+
+    </DockPanel>
 </UserControl>
