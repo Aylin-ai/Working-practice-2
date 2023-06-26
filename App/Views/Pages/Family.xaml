@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyApplication.Views.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1200"
+             d:DesignHeight="600" d:DesignWidth="1200"
              Background="White">
     <DockPanel LastChildFill="True">
 
@@ -37,6 +37,11 @@
                    IsEnabled="False"/>
 
             <Label Content="Здоровье"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
+            <Label Content="Работа"
                    FontSize="20"
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"/>

@@ -41,6 +41,11 @@
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"/>
 
+            <Label Content="Работа"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
         </StackPanel>
 
         <ScrollViewer>

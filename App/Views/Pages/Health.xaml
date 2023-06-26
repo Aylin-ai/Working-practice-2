@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="MyApplication.Views.Pages.Health"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyApplication.Views.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200"
+             Background="White">
+    <DockPanel LastChildFill="True">
+
+        <StackPanel DockPanel.Dock="Left"
+                    Margin="10">
+
+            <Label Content="Учётная запись"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
+            <TextBlock Text="Документы и данные"
+                   FontSize="40"
+                   FontWeight="SemiBold"
+                   TextWrapping="Wrap"
+                   Width="300"
+                   Margin="5"/>
+
+            <Label Content="Личные документы"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"
+                   Margin="0 30 0 0"/>
+
+            <Label Content="Семья и дети"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
+            <Label Content="Здоровье"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"
+                   IsEnabled="False"/>
+
+            <Label Content="Работа"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left"/>
+
+        </StackPanel>
+
+        <StackPanel Margin="20">
+
+            <Border BorderBrush="Black" BorderThickness="1" 
+                            CornerRadius="10"
+                            Margin="0 20">
+                <StackPanel>
+
+                    <DockPanel LastChildFill="True">
+                        <Button DockPanel.Dock="Right" 
+                                        Content="Изменить"/>
+                        <Label Content="Полис ОМС"
+                                       FontSize="30"
+                                       FontWeight="SemiBold"/>
+                    </DockPanel>
+
+                    <Label Content="Номер"
+                                   FontSize="20"/>
+                    <TextBox Text="3782473824729"
+                                     FontSize="24"
+                                     Foreground="Black"
+                                     Background="White"
+                                     BorderBrush="Black"
+                                     Margin="5"/>
+
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+        
+    </DockPanel>
+</UserControl>
