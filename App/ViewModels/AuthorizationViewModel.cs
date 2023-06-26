@@ -1,5 +1,5 @@
-﻿using App.Infrastructure.Commands;
-using App.Infrastructure.Stores;
+﻿using MyApplication.Infrastructure.Commands;
+using MyApplication.Infrastructure.Stores;
 using MyApplication.Models;
 using MySql.Data.Types;
 using System;

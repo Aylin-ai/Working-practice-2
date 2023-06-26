@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Infrastructure.Stores
+namespace MyApplication.Infrastructure.Stores
 {
     public class NavigationStore
     {

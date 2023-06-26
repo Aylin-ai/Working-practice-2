@@ -1,11 +1,11 @@
-﻿using App.Infrastructure.Commands.Base;
+﻿using MyApplication.Infrastructure.Commands.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Infrastructure.Commands
+namespace MyApplication.Infrastructure.Commands
 {
     internal class LambdaCommand : Command
     {

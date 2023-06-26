@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MyApplication.ViewModels
 {
-    public class HealthViewModel : ViewModel
+    public class ApplicationViewModel : ViewModel
     {
         private readonly AccountStore _accountStore;
 
-        public HealthViewModel(AccountStore accountStore, NavigationStore navigationStore)
+        public ApplicationViewModel(AccountStore accountStore, NavigationStore navigationStore)
         {
             _accountStore = accountStore;
 

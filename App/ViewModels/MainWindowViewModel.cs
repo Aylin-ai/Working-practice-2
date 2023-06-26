@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using App.Infrastructure.Stores;
+using MyApplication.Infrastructure.Stores;
 
 namespace MyApplication.ViewModels
 {

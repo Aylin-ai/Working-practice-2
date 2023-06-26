@@ -1,5 +1,5 @@
 ﻿using MyApplication.ViewModels;
-using App.Infrastructure.Stores;
+using MyApplication.Infrastructure.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +26,16 @@ namespace MyApplication.Views.Windows
             InitializeComponent();
             AuthorizationViewModel vm = new AuthorizationViewModel(new AccountStore());
             DataContext = vm;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Hide();
         }
     }
 }

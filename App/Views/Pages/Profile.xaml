@@ -27,60 +27,120 @@
             <Label Content="Документы и данные"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToDocumentsCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Заявки"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToApplicationCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
         </StackPanel>
 
         <Border Margin="150" BorderBrush="Black" BorderThickness="1">
             <StackPanel>
 
-                <Label Content="ФИО"
+                <Label Content="{Binding Fio}"
                        FontSize="24"
                        FontWeight="SemiBold"
                        Margin="10"/>
 
-                <WrapPanel>
-                    <Label Content="Номер телефона"
-                           FontSize="20"
-                           FontWeight="SemiBold"
-                           Margin="10"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding TelephoneNumber, 
+                             Mode=TwoWay, 
+                             UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="20"
+                             FontWeight="SemiBold"
+                             Margin="10"
+                             BorderThickness="1"
+                             BorderBrush="Black"/>
                     <Label Content="Изменить"
                            FontSize="20"
                            Foreground="DarkBlue"
-                           Margin="10"/>
-                </WrapPanel>
+                           Margin="10"
+                           HorizontalAlignment="Right"
+                           Grid.Column="1">
+                        <Label.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding ChangeNumberCommand}"/>
+                        </Label.InputBindings>
+                    </Label>
+                </Grid>
 
-                <WrapPanel>
-                    <Label Content="Email"
-                           FontSize="20"
-                           FontWeight="SemiBold"
-                           Margin="10"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding Email, 
+                             Mode=TwoWay, 
+                             UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="20"
+                             FontWeight="SemiBold"
+                             Margin="10"
+                             BorderThickness="1"
+                             BorderBrush="Black"/>
                     <Label Content="Изменить"
                            FontSize="20"
                            Foreground="DarkBlue"
-                           Margin="10"/>
-                </WrapPanel>
+                           Margin="10"
+                           HorizontalAlignment="Right"
+                           Grid.Column="1">
+                        <Label.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding ChangeEmailCommand}"/>
+                        </Label.InputBindings>
+                    </Label>
+                </Grid>
 
-                <WrapPanel>
-                    <Label Content="Пароль"
-                           FontSize="20"
-                           FontWeight="SemiBold"
-                           Margin="10"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding Password, 
+                             Mode=TwoWay, 
+                             UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="20"
+                             FontWeight="SemiBold"
+                             Margin="10"
+                             BorderThickness="1"
+                             BorderBrush="Black"/>
                     <Label Content="Изменить"
                            FontSize="20"
                            Foreground="DarkBlue"
-                           Margin="10"/>
-                </WrapPanel>
+                           Margin="10"
+                           HorizontalAlignment="Right"
+                           Grid.Column="1">
+                        <Label.InputBindings>
+                            <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding ChangePasswordCommand}"/>
+                        </Label.InputBindings>
+                    </Label>
+                </Grid>
 
                 <Label Content="Удалить учётную запись"
                        FontSize="20"
                        Foreground="DarkBlue"
-                       Margin="10"/>
+                       Margin="10">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding DeleteAccountCommand}"/>
+                    </Label.InputBindings>
+                </Label>
 
             </StackPanel>
         </Border>

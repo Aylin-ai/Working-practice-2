@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace App.Infrastructure.Commands.Base
+namespace MyApplication.Infrastructure.Commands.Base
 {
     internal abstract class Command : ICommand
     {

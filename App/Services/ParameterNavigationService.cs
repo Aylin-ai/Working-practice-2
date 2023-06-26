@@ -1,4 +1,4 @@
-﻿using App.Infrastructure.Stores;
+﻿using MyApplication.Infrastructure.Stores;
 using MyApplication.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Services
+namespace MyApplication.Services
 {
     internal class ParameterNavigationService<TParameter, TViewModel>
         where TViewModel : ViewModel

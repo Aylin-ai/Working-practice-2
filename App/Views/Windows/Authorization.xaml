@@ -34,21 +34,22 @@
                                 Height="35"
                                 Foreground="Black"
                                 DockPanel.Dock="Bottom"
-                                Command="{Binding ToMainWindowCommand}"/>
+                                Command="{Binding AuthorizationCommand}" 
+                                Click="Button_Click"/>
 
                         <StackPanel Margin="15">
 
                             <Label Content="Номер телефона"
                                    FontSize="16"
                                    Foreground="Black"/>
-                            <TextBox Text="{Binding Login, Mode=TwoWay,
+                            <TextBox Text="{Binding TelephoneNumber, Mode=TwoWay,
                                      UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="20"/>
 
                             <Label Content="Пароль"
                                    FontSize="16"
                                    Foreground="Black"/>
-                            <TextBox Text="{Binding Password1, Mode=TwoWay,
+                            <TextBox Text="{Binding Password, Mode=TwoWay,
                                      UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="20"/>
                         </StackPanel>
@@ -66,7 +67,8 @@
                                 Height="35"
                                 Foreground="Black"
                                 DockPanel.Dock="Bottom"
-                                Command="{Binding RegistrationCommand}"/>
+                                Command="{Binding RegistrationCommand}" 
+                                Click="Button_Click_1"/>
 
                         <StackPanel Margin="15">
 

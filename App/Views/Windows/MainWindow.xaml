@@ -19,6 +19,12 @@
             <DataTemplate DataType="{x:Type vm:FamilyViewModel}">
                 <views:Family/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:HealthViewModel}">
+                <views:Health/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:WorkViewModel}">
+                <views:Work/>
+            </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
 </Window>
