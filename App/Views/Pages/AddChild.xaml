@@ -5,8 +5,151 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyApplication.Views.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="600" d:DesignWidth="1200"
+             Background="White">
+    <DockPanel LastChildFill="True">
+
+        <StackPanel DockPanel.Dock="Left"
+                    Margin="10">
+
+            <Label Content="Семья"
+                   FontSize="20"
+                   Foreground="DarkBlue"
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToFamilyCommand}"/>
+                </Label.InputBindings>
+            </Label>
+
+            <TextBlock Text="Добавление ребенка"
+                   FontSize="40"
+                   FontWeight="SemiBold"
+                   TextWrapping="Wrap"
+                   Width="300"
+                   Margin="5"/>
+
+        </StackPanel>
+
+        <ScrollViewer>
+            <Border Margin="20"
+                BorderBrush="Black"
+                BorderThickness="1">
+
+                <StackPanel>
+
+                    <WrapPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="ФИО"
+                                   FontSize="20"/>
+                            <TextBox Text="{Binding ChildFio, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                                 FontSize="20"
+                                 BorderBrush="Black"
+                                 BorderThickness="1"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Пол"
+                                   FontSize="20"/>
+                            <TextBox Text="{Binding ChildSex, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                                 FontSize="20"
+                                 BorderBrush="Black"
+                                 BorderThickness="1"/>
+                        </StackPanel>
+
+                    </WrapPanel>
+
+                    <Label Content="Дата рождения"
+                           FontSize="20"/>
+                    <TextBox Text="{Binding ChildDateOfBirth, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="20"
+                         BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
+
+                    <Label Content="Страна регистрации проживания"
+                           FontSize="20"/>
+                    <TextBox Text="{Binding ChildPlaceOfLive, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="20"
+                         BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
+
+                    <Label Content="Серия и номер свидетельства о рождении"
+                           FontSize="20"/>
+                    <WrapPanel>
+
+                        <TextBox Text="{Binding ChildBirthSeries, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="20"
+                             BorderBrush="Black"
+                             BorderThickness="1"
+                             Margin="5"
+                             MinWidth="200"/>
+
+                        <TextBox Text="{Binding ChildBirthNumber, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                             FontSize="20"
+                             BorderBrush="Black"
+                             BorderThickness="1"
+                             Margin="5"
+                             MinWidth="200"/>
+
+                    </WrapPanel>
+
+                    <Label Content="Дата выдачи свидетельства"
+                           FontSize="20"/>
+                    <DatePickerTextBox 
+                        Text="{Binding ChildBirthDateOfGive, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                           FontSize="20"/>
+
+                    <Label Content="Дата актовой записи"
+                           FontSize="20"/>
+                    <DatePickerTextBox 
+                        Text="{Binding ChildDateOfEntry, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="20"
+                         BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
+
+                    <Label Content="Номер актовой записи"
+                           FontSize="20"/>
+                    <TextBox Text="{Binding ChildNumberOfEntry, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="20"
+                         BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
+
+                    <Label Content="Место государственной регистрации"
+                           FontSize="20"/>
+                    <TextBox Text="{Binding ChildPlaceOfRegistration, Mode=TwoWay, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="20"
+                         BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
+
+                    <Button Content="Добавить"
+                            Margin="5"
+                            Background="White"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Command="{Binding AddChildCommand}"/>
+
+                </StackPanel>
+
+            </Border>
+        </ScrollViewer>
+
+    </DockPanel>
 </UserControl>

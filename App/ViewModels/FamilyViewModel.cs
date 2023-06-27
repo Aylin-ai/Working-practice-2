@@ -6,6 +6,8 @@ using MyApplication.ViewModels.Base;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MyApplication.ViewModels
@@ -39,6 +41,7 @@ namespace MyApplication.ViewModels
 
             ChangeMarriageCommand = new LambdaCommand(OnChangeMarriageCommandExecuted);
             ChangeDivorceCommand = new LambdaCommand(OnChangeDivorceCommandExecuted);
+            DeleteChildCommand = new LambdaCommand(OnDeleteChildCommandExecuted);
 
             #endregion
         }
@@ -51,10 +54,10 @@ namespace MyApplication.ViewModels
         private string _marriageNumber;
         public string MarriageNumber { get => _marriageNumber; set => Set(ref _marriageNumber, value); }
 
-        private DateTime _marriageDateOfGive;
+        private DateTime _marriageDateOfGive = DateTime.Now;
         public DateTime MarriageDateOfGive { get => _marriageDateOfGive; set => Set(ref _marriageDateOfGive, value); }
 
-        private DateTime _marriageDateOfEntry;
+        private DateTime _marriageDateOfEntry = DateTime.Now;
         public DateTime MarriageDateOfEntry { get => _marriageDateOfEntry; set => Set(ref _marriageDateOfEntry, value); }
 
         private string _marriageNumberOfEntry;
@@ -73,10 +76,10 @@ namespace MyApplication.ViewModels
         private string _divorceNumber;
         public string DivorceNumber { get => _divorceNumber; set => Set(ref _divorceNumber, value); }
 
-        private DateTime _divorceDateOfGive;
+        private DateTime _divorceDateOfGive = DateTime.Now;
         public DateTime DivorceDateOfGive { get => _divorceDateOfGive; set => Set(ref _divorceDateOfGive, value); }
 
-        private DateTime _divorceDateOfEntry;
+        private DateTime _divorceDateOfEntry = DateTime.Now;
         public DateTime DivorceDateOfEntry { get => _divorceDateOfEntry; set => Set(ref _divorceDateOfEntry, value); }
 
         private string _divorceNumberOfEntry;
@@ -158,7 +161,7 @@ namespace MyApplication.ViewModels
         private string _childSex;
         public string ChildSex { get => _childSex; set => Set(ref _childSex, value); }
 
-        private DateTime _childDateOfBirth;
+        private DateTime _childDateOfBirth = DateTime.Now;
         public DateTime ChildDateOfBirth { get => _childDateOfBirth; set => Set(ref _childDateOfBirth, value); }
 
         private string _childPlaceOfLive;
@@ -170,10 +173,10 @@ namespace MyApplication.ViewModels
         private string _childBirthNumber;
         public string ChildBirthNumber { get => _childBirthNumber; set => Set(ref _childBirthNumber, value); }
 
-        private DateTime _childBirthDateOfGive;
+        private DateTime _childBirthDateOfGive = DateTime.Now;
         public DateTime ChildBirthDateOfGive { get => _childBirthDateOfGive; set => Set(ref _childBirthDateOfGive, value); }
 
-        private DateTime _childDateOfEntry;
+        private DateTime _childDateOfEntry = DateTime.Now;
         public DateTime ChildDateOfEntry { get => _childDateOfEntry; set => Set(ref _childDateOfEntry, value); }
 
         private string _childNumberOfEntry;
@@ -325,10 +328,66 @@ namespace MyApplication.ViewModels
 
         #endregion
 
+        #region Команда удаления выбранного ребенка
+
+        public ICommand DeleteChildCommand { get; }
+
+        private void OnDeleteChildCommandExecuted(object parameter)
+        {
+            if (ChildFio == null || ChildFio == "")
+            {
+                MessageBox.Show("Ребенок не выбран");
+                return;
+            }
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            conn.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+
+                string sql = "delete from ребенок " +
+                    "where фио = @fio and " +
+                    "серия_свидетельства_о_рождении = @birthSeries and " +
+                    "номер_свидетельства_о_рождении = @birthNumber;";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@fio", ChildFio);
+                cmd.Parameters.AddWithValue("@birthSeries", ChildBirthSeries);
+                cmd.Parameters.AddWithValue("@birthNumber", ChildBirthNumber);
+
+                cmd.ExecuteNonQuery();
+
+                GetChildren();
+                ChildFio = "";
+                ChildSex = "";
+                ChildDateOfBirth = DateTime.Now;
+                ChildPlaceOfLive = "";
+                ChildBirthSeries = "";
+                ChildBirthNumber = "";
+                ChildBirthDateOfGive = DateTime.Now;
+                ChildDateOfEntry = DateTime.Now;
+                ChildNumberOfEntry = "";
+                ChildPlaceOfRegistration = "";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+        }
+
+        #endregion
+
         #endregion
 
         private void GetChildren()
         {
+            Children.Clear();
             MySqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
 

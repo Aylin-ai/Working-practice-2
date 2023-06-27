@@ -267,6 +267,15 @@
                                   Command="{Binding NavigateToAddChildCommand}"/>
                     </Label.InputBindings>
                 </Label>
+                <Label Content="Удалить ребёнка"
+                       Margin="20 0"
+                       FontSize="20"
+                       Foreground="DarkBlue">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding DeleteChildCommand}"/>
+                    </Label.InputBindings>
+                </Label>
 
                 <Label Content="Список детей"
                        Margin="20 20 20 0"

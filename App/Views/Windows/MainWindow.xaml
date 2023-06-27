@@ -25,6 +25,12 @@
             <DataTemplate DataType="{x:Type vm:WorkViewModel}">
                 <views:Work/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AddChildViewModel}">
+                <views:AddChild/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ApplicationViewModel}">
+                <views:Application/>
+            </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
 </Window>
