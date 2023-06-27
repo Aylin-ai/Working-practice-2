@@ -15,7 +15,12 @@
             <Label Content="Учётная запись"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToProfileCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <TextBlock Text="Документы и данные"
                    FontSize="40"
@@ -28,23 +33,38 @@
                    FontSize="20"
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"
-                   Margin="0 30 0 0"/>
+                   Margin="0 30 0 0">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToDocumentsCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Семья и дети"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"
-                   IsEnabled="False"/>
+                   HorizontalAlignment="Left">
+            </Label>
 
             <Label Content="Здоровье"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToHealthCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Работа"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToWorkCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
         </StackPanel>
 
@@ -67,7 +87,8 @@
 
                                 <DockPanel LastChildFill="True">
                                     <Button DockPanel.Dock="Right" 
-                                    Content="Изменить"/>
+                                            Content="Изменить"
+                                            Command="{Binding ChangeMarriageCommand}"/>
                                     <TextBlock Text="Свидетельство о браке"
                                FontSize="30"
                                FontWeight="SemiBold"
@@ -82,23 +103,27 @@
                                         <ColumnDefinition Width="0.5*"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBox Text="9218"
-                                     FontSize="24"
-                                     Foreground="Black"
-                                     Background="White"
-                                     BorderBrush="Black"
-                                     Margin="5"/>
-                                    <TextBox Grid.Column="1"
-                                     FontSize="24"
-                                     Foreground="Black"
-                                     Background="White"
-                                     BorderBrush="Black"
-                                     Margin="5"/>
+                                    <TextBox Text="{Binding MarriageSeries,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                             FontSize="24"
+                                             Foreground="Black"
+                                             Background="White"
+                                             BorderBrush="Black"
+                                             Margin="5"/>
+                                    <TextBox Text="{Binding MarriageNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                             Grid.Column="1"
+                                             FontSize="24"
+                                             Foreground="Black"
+                                             Background="White"
+                                             BorderBrush="Black"
+                                             Margin="5"/>
                                 </Grid>
 
                                 <Label Content="Дата выдачи"
                                FontSize="20"/>
-                                <DatePickerTextBox 
+                                <DatePickerTextBox Text="{Binding MarriageDateOfGive,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     FontSize="24"
                                     Foreground="Black"
                                     Background="White"
@@ -107,7 +132,8 @@
 
                                 <Label Content="Дата актовой записи"
                                FontSize="20"/>
-                                <DatePickerTextBox 
+                                <DatePickerTextBox Text="{Binding MarriageDateOfEntry,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     FontSize="24"
                                     Foreground="Black"
                                     Background="White"
@@ -116,7 +142,8 @@
 
                                 <Label Content="Номер актовой записи"
                                FontSize="20"/>
-                                <TextBox Text="32424"
+                                <TextBox Text="{Binding MarriageNumberOfEntry,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -125,7 +152,8 @@
 
                                 <Label Content="Место государственной регистрации"
                                FontSize="20"/>
-                                <TextBox Text="Казань"
+                                <TextBox Text="{Binding MarriagePlaceOfRegistration,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -145,7 +173,8 @@
 
                                 <DockPanel LastChildFill="True">
                                     <Button DockPanel.Dock="Right" 
-                                    Content="Изменить"/>
+                                            Content="Изменить"
+                                            Command="{Binding ChangeDivorceCommand}"/>
                                     <TextBlock Text="Свидетельство о разводе"
                                FontSize="30"
                                FontWeight="SemiBold"
@@ -160,23 +189,27 @@
                                         <ColumnDefinition Width="0.5*"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBox Text="9218"
-                                     FontSize="24"
-                                     Foreground="Black"
-                                     Background="White"
-                                     BorderBrush="Black"
-                                     Margin="5"/>
-                                    <TextBox Grid.Column="1"
-                                     FontSize="24"
-                                     Foreground="Black"
-                                     Background="White"
-                                     BorderBrush="Black"
-                                     Margin="5"/>
+                                    <TextBox Text="{Binding DivorceSeries,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                             FontSize="24"
+                                             Foreground="Black"
+                                             Background="White"
+                                             BorderBrush="Black"
+                                             Margin="5"/>
+                                    <TextBox Text="{Binding DivorceNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                             Grid.Column="1"
+                                             FontSize="24"
+                                             Foreground="Black"
+                                             Background="White"
+                                             BorderBrush="Black"
+                                             Margin="5"/>
                                 </Grid>
 
                                 <Label Content="Дата выдачи"
                                FontSize="20"/>
-                                <DatePickerTextBox 
+                                <DatePickerTextBox Text="{Binding DivorceDateOfGive,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     FontSize="24"
                                     Foreground="Black"
                                     Background="White"
@@ -185,7 +218,8 @@
 
                                 <Label Content="Дата актовой записи"
                                FontSize="20"/>
-                                <DatePickerTextBox 
+                                <DatePickerTextBox Text="{Binding DivorceDateOfEntry,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                     FontSize="24"
                                     Foreground="Black"
                                     Background="White"
@@ -194,7 +228,8 @@
 
                                 <Label Content="Номер актовой записи"
                                FontSize="20"/>
-                                <TextBox Text="32424"
+                                <TextBox Text="{Binding DivorceNumberOfEntry,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -203,7 +238,8 @@
 
                                 <Label Content="Место государственной регистрации"
                                FontSize="20"/>
-                                <TextBox Text="Казань"
+                                <TextBox Text="{Binding DivorcePlaceOfRegistration,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -225,13 +261,20 @@
                 <Label Content="Добавить ребёнка"
                        Margin="20 0"
                        FontSize="20"
-                       Foreground="DarkBlue"/>
+                       Foreground="DarkBlue">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToAddChildCommand}"/>
+                    </Label.InputBindings>
+                </Label>
 
                 <Label Content="Список детей"
                        Margin="20 20 20 0"
                        FontSize="24"/>
 
-                <ComboBox Margin="20 0"/>
+                <ComboBox Margin="20 0"
+                          ItemsSource="{Binding Children}"
+                          SelectedItem="{Binding SelectedChild}"/>
 
                 <StackPanel Margin="20">
 
@@ -240,14 +283,14 @@
                         <StackPanel>
                             <Label Content="ФИО"
                                    FontSize="20"/>
-                            <Label Content="ЗЗАВЗ"
+                            <Label Content="{Binding ChildFio}"
                                    FontSize="20"/>
                         </StackPanel>
 
                         <StackPanel>
                             <Label Content="Пол"
                                    FontSize="20"/>
-                            <Label Content="М"
+                            <Label Content="{Binding ChildSex}"
                                    FontSize="20"/>
                         </StackPanel>
                         
@@ -255,44 +298,44 @@
 
                     <Label Content="Дата рождения"
                            FontSize="20"/>
-                    <Label Content="12.02.2004"
+                    <Label Content="{Binding ChildDateOfBirth}"
                            FontSize="20"/>
 
                     <Label Content="Страна регистрации проживания"
                            FontSize="20"/>
-                    <Label Content="Россия"
+                    <Label Content="{Binding ChildPlaceOfLive}"
                            FontSize="20"/>
 
                     <Label Content="Серия и номер свидетельства о рождении"
                            FontSize="20"/>
                     <WrapPanel>
 
-                        <Label Content="Серия"
+                        <Label Content="{Binding ChildBirthSeries}"
                                FontSize="20"/>
 
-                        <Label Content="Номер"
+                        <Label Content="{Binding ChildBirthNumber}"
                                FontSize="20"/>
 
                     </WrapPanel>
 
                     <Label Content="Дата выдачи свидетельства"
                            FontSize="20"/>
-                    <Label Content="22.06.2004"
+                    <Label Content="{Binding ChildBirthDateOfGive}"
                            FontSize="20"/>
 
                     <Label Content="Дата актовой записи"
                            FontSize="20"/>
-                    <Label Content="22.06.2004"
+                    <Label Content="{Binding ChildDateOfEntry}"
                            FontSize="20"/>
 
                     <Label Content="Номер актовой записи"
                            FontSize="20"/>
-                    <Label Content="1"
+                    <Label Content="{Binding ChildNumberOfEntry}"
                            FontSize="20"/>
 
                     <Label Content="Место государственной регистрации"
                            FontSize="20"/>
-                    <Label Content="Казань"
+                    <Label Content="{Binding ChildPlaceOfRegistration}"
                            FontSize="20"/>
 
                 </StackPanel>

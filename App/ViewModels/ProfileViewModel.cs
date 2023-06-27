@@ -14,6 +14,27 @@ namespace MyApplication.ViewModels
     {
         private readonly AccountStore _accountStore;
 
+        public ProfileViewModel(AccountStore accountStore, NavigationStore navigationStore)
+        {
+            _accountStore = accountStore;
+            GetUserInformation(_accountStore);
+
+            #region Команды
+
+            NavigateToDocumentsCommand = new NavigateCommand<DocumentsViewModel>(new NavigationService<DocumentsViewModel>(
+                navigationStore, () => new DocumentsViewModel(_accountStore, navigationStore)));
+            NavigateToApplicationCommand = new NavigateCommand<ApplicationViewModel>(new NavigationService<ApplicationViewModel>(
+                navigationStore, () => new ApplicationViewModel(_accountStore, navigationStore)));
+
+            ChangeNumberCommand = new LambdaCommand(OnChangeNumberCommandExecuted);
+            ChangeEmailCommand = new LambdaCommand(OnChangeEmailCommandExecuted);
+            ChangePasswordCommand = new LambdaCommand(OnChangePasswordCommandExecuted);
+
+            DeleteAccountCommand = new LambdaCommand(OnDeleteAccountCommandExecuted);
+
+            #endregion
+        }
+
         #region Данные пользователя
 
         private string _telephoneNumber;
@@ -216,27 +237,6 @@ namespace MyApplication.ViewModels
         #endregion
 
         #endregion
-
-        public ProfileViewModel(AccountStore accountStore, NavigationStore navigationStore)
-        {
-            _accountStore = accountStore;
-            GetUserInformation(_accountStore);
-
-            #region Команды
-
-            NavigateToDocumentsCommand = new NavigateCommand<DocumentsViewModel>(new NavigationService<DocumentsViewModel>(
-                navigationStore, () => new DocumentsViewModel(_accountStore, navigationStore)));
-            NavigateToApplicationCommand = new NavigateCommand<ApplicationViewModel>(new NavigationService<ApplicationViewModel>(
-                navigationStore, () => new ApplicationViewModel(_accountStore, navigationStore)));
-
-            ChangeNumberCommand = new LambdaCommand(OnChangeNumberCommandExecuted);
-            ChangeEmailCommand = new LambdaCommand(OnChangeEmailCommandExecuted);
-            ChangePasswordCommand = new LambdaCommand(OnChangePasswordCommandExecuted);
-
-            DeleteAccountCommand = new LambdaCommand(OnDeleteAccountCommandExecuted);
-
-            #endregion
-        }
 
         private void GetUserInformation(AccountStore accountStore)
         {

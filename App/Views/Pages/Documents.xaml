@@ -15,7 +15,12 @@
             <Label Content="Учётная запись"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToProfileCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <TextBlock Text="Документы и данные"
                    FontSize="40"
@@ -34,17 +39,32 @@
             <Label Content="Семья и дети"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToFamilyCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Здоровье"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToHealthCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Работа"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToWorkCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
         </StackPanel>
 
@@ -64,7 +84,8 @@
 
                             <DockPanel LastChildFill="True">
                                 <Button DockPanel.Dock="Right" 
-                                    Content="Изменить"/>
+                                        Content="Изменить"
+                                        Command="{Binding ChangePassportCommand}"/>
                                 <Label Content="Паспорт РФ"
                                FontSize="30"
                                FontWeight="SemiBold"/>
@@ -77,13 +98,16 @@
                                     <ColumnDefinition Width="0.5*"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <TextBox Text="9218"
+                                <TextBox Text="{Binding PassportSeries,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"
                                      BorderBrush="Black"
                                      Margin="5"/>
-                                <TextBox Grid.Column="1"
+                                <TextBox Text="{Binding PassportNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     Grid.Column="1"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"
@@ -93,7 +117,8 @@
 
                             <Label Content="Выдан"
                                FontSize="20"/>
-                            <TextBox Text="МВД по Республике Татарстан"
+                            <TextBox Text="{Binding PassportGiven,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -102,7 +127,8 @@
 
                             <Label Content="Код подразделения"
                                FontSize="20"/>
-                            <TextBox Text="160-007"
+                            <TextBox Text="{Binding PassportUnitCode,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -111,16 +137,18 @@
 
                             <Label Content="Дата выдачи"
                                FontSize="20"/>
-                            <DatePickerTextBox 
-                            FontSize="24"
-                            Foreground="Black"
-                            Background="White"
-                            BorderBrush="Black"
-                            Margin="5"/>
+                            <DatePickerTextBox Text="{Binding PassportDateOfGive,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    FontSize="24"
+                                    Foreground="Black"
+                                    Background="White"
+                                    BorderBrush="Black"
+                                    Margin="5"/>
 
                             <Label Content="Место рождения"
                                FontSize="20"/>
-                            <TextBox Text="Казань"
+                            <TextBox Text="{Binding PassportPlaceOfBirth,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -129,7 +157,8 @@
 
                             <Label Content="Гражданство"
                                FontSize="20"/>
-                            <TextBox Text="Россия"
+                            <TextBox Text="{Binding PassportNationality,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -146,7 +175,8 @@
 
                             <DockPanel LastChildFill="True">
                                 <Button DockPanel.Dock="Right" 
-                                        Content="Изменить"/>
+                                        Content="Изменить"
+                                        Command="{Binding ChangeSnilsCommand}"/>
                                 <Label Content="СНИЛС"
                                        FontSize="30"
                                        FontWeight="SemiBold"/>
@@ -154,7 +184,8 @@
 
                             <Label Content="Номер"
                                    FontSize="20"/>
-                            <TextBox Text="160-561-819 55"
+                            <TextBox Text="{Binding SnilsNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"
@@ -175,7 +206,8 @@
 
                             <DockPanel LastChildFill="True">
                                 <Button DockPanel.Dock="Right" 
-                                        Content="Изменить"/>
+                                        Content="Изменить"
+                                        Command="{Binding ChangeMilitaryCommand}"/>
                                 <Label Content="Военный билет"
                                        FontSize="30"
                                        FontWeight="SemiBold"/>
@@ -188,13 +220,16 @@
                                     <ColumnDefinition Width="0.5*"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <TextBox Text="9218"
+                                <TextBox Text="{Binding MilitarySeries,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"
                                      BorderBrush="Black"
                                      Margin="5"/>
-                                <TextBox Grid.Column="1"
+                                <TextBox Text="{Binding MilitaryNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                     Grid.Column="1"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"
@@ -204,7 +239,8 @@
 
                             <Label Content="Выдан"
                                FontSize="20"/>
-                            <TextBox Text="МВД по Республике Татарстан"
+                            <TextBox Text="{Binding MilitaryGiven,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="24"
                                  Foreground="Black"
                                  Background="White"
@@ -213,12 +249,13 @@
 
                             <Label Content="Дата выдачи"
                                    FontSize="20"/>
-                            <DatePickerTextBox 
-                                FontSize="24"
-                                Foreground="Black"
-                                Background="White"
-                                BorderBrush="Black"
-                                Margin="5"/>
+                            <DatePickerTextBox Text="{Binding MilitaryDateOfGive,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    FontSize="24"
+                                    Foreground="Black"
+                                    Background="White"
+                                    BorderBrush="Black"
+                                    Margin="5"/>
 
                         </StackPanel>
                     </Border>
@@ -230,7 +267,8 @@
 
                             <DockPanel LastChildFill="True">
                                 <Button DockPanel.Dock="Right" 
-                                        Content="Изменить"/>
+                                        Content="Изменить"
+                                        Command="{Binding ChangeInnCommand}"/>
                                 <Label Content="ИНН"
                                        FontSize="30"
                                        FontWeight="SemiBold"/>
@@ -238,7 +276,8 @@
 
                             <Label Content="Номер"
                                    FontSize="20"/>
-                            <TextBox Text="160-561-819 55"
+                            <TextBox Text="{Binding InnNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"
