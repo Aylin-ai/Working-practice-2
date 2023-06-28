@@ -81,11 +81,11 @@ namespace MyApplication.ViewModels
         private void OnAddChildCommandExecuted(object parameter)
         {
             if (ChildFio == null || ChildSex == null || 
-                ChildDateOfBirth.Date.ToString("yyyy-MM-dd") == "0001-01-01" ||
+                ChildDateOfBirth == DateTime.Now ||
                 ChildPlaceOfLive == null || ChildBirthSeries == null ||
                 ChildBirthNumber == null ||
-                ChildBirthDateOfGive.Date.ToString("yyyy-MM-dd") == "0001-01-01" ||
-                ChildDateOfEntry.Date.ToString("yyyy-MM-dd") == "0001-01-01" ||
+                ChildBirthDateOfGive == DateTime.Now ||
+                ChildDateOfEntry == DateTime.Now ||
                 ChildNumberOfEntry == null || ChildPlaceOfRegistration == null)
             {
                 MessageBox.Show("Введены не все данные");
@@ -126,10 +126,10 @@ namespace MyApplication.ViewModels
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@fio", ChildFio);
                 cmd.Parameters.AddWithValue("@sex", ChildSex);
-                cmd.Parameters.AddWithValue("@dateOfBirthday", ChildDateOfBirth);
+                cmd.Parameters.AddWithValue("@dateOfBirthday", ChildDateOfBirth.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@placeOfLive", ChildPlaceOfLive);
-                cmd.Parameters.AddWithValue("@birthDateOfGive", ChildBirthDateOfGive);
-                cmd.Parameters.AddWithValue("@dateOfEntry", ChildDateOfEntry);
+                cmd.Parameters.AddWithValue("@birthDateOfGive", ChildBirthDateOfGive.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@dateOfEntry", ChildDateOfEntry.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@numberOfEntry", ChildNumberOfEntry);
                 cmd.Parameters.AddWithValue("@placeOfRegistration", ChildPlaceOfRegistration);
 

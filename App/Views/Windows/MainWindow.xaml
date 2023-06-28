@@ -28,6 +28,9 @@
             <DataTemplate DataType="{x:Type vm:AddChildViewModel}">
                 <views:AddChild/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AddWorkerViewModel}">
+                <views:AddWorker/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:ApplicationViewModel}">
                 <views:Application/>
             </DataTemplate>

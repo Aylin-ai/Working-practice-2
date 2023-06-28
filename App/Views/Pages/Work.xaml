@@ -15,7 +15,12 @@
             <Label Content="Учётная запись"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToProfileCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <TextBlock Text="Документы и данные"
                    FontSize="40"
@@ -28,23 +33,38 @@
                    FontSize="20"
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"
-                   Margin="0 30 0 0"/>
+                   Margin="0 30 0 0">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToDocumentsCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Семья и дети"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToFamilyCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Здоровье"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"
-                   IsEnabled="False"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToHealthCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Работа"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+            </Label>
 
         </StackPanel>
         
@@ -60,13 +80,29 @@
                 <Label Content="Добавить работодателя"
                        Margin="20 0"
                        FontSize="20"
-                       Foreground="DarkBlue"/>
+                       Foreground="DarkBlue">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToAddWorkerCommand}"/>
+                    </Label.InputBindings>
+                </Label>
+                <Label Content="Удалить работодателя"
+                       Margin="20 0"
+                       FontSize="20"
+                       Foreground="DarkBlue">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding DeleteWorkerCommand}"/>
+                    </Label.InputBindings>
+                </Label>
 
                 <Label Content="Список работодателей"
                        Margin="20 20 20 0"
                        FontSize="24"/>
 
-                <ComboBox Margin="20 0"/>
+                <ComboBox Margin="20 0"
+                          ItemsSource="{Binding Workers}"
+                          SelectedItem="{Binding SelectedWorker}"/>
 
                 <StackPanel Margin="20">
 
@@ -75,14 +111,14 @@
                         <StackPanel>
                             <Label Content="Наименование"
                                    FontSize="20"/>
-                            <Label Content="ЗЗАВЗ"
+                            <Label Content="{Binding WorkerName}"
                                    FontSize="20"/>
                         </StackPanel>
 
                         <StackPanel>
                             <Label Content="Должность"
                                    FontSize="20"/>
-                            <Label Content="М"
+                            <Label Content="{Binding WorkerJob}"
                                    FontSize="20"/>
                         </StackPanel>
 
@@ -90,17 +126,22 @@
 
                     <Label Content="Дата приема на работу"
                            FontSize="20"/>
-                    <Label Content="12.02.2004"
+                    <Label Content="{Binding WorkerDateOfHire}"
                            FontSize="20"/>
 
                     <Label Content="Дата перевода"
                            FontSize="20"/>
-                    <Label Content="12.02.2004"
+                    <Label Content="{Binding WorkerDateOfReassignment}"
                            FontSize="20"/>
 
                     <Label Content="Дата увольнения"
                            FontSize="20"/>
-                    <Label Content="12.02.2004"
+                    <Label Content="{Binding WorkerDateOfFire}"
+                           FontSize="20"/>
+
+                    <Label Content="Причина увольнения"
+                           FontSize="20"/>
+                    <Label Content="{Binding WorkerReasonOfFire}"
                            FontSize="20"/>
 
                 </StackPanel>

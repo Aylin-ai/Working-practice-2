@@ -15,7 +15,12 @@
             <Label Content="Учётная запись"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToProfileCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <TextBlock Text="Документы и данные"
                    FontSize="40"
@@ -28,23 +33,38 @@
                    FontSize="20"
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"
-                   Margin="0 30 0 0"/>
+                   Margin="0 30 0 0">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToDocumentsCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Семья и дети"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToFamilyCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Здоровье"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"
-                   IsEnabled="False"/>
+                   HorizontalAlignment="Left">
+            </Label>
 
             <Label Content="Работа"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToWorkCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
         </StackPanel>
 
@@ -57,7 +77,8 @@
 
                     <DockPanel LastChildFill="True">
                         <Button DockPanel.Dock="Right" 
-                                        Content="Изменить"/>
+                                        Content="Изменить"
+                                Command="{Binding ChangePolisCommand}"/>
                         <Label Content="Полис ОМС"
                                        FontSize="30"
                                        FontWeight="SemiBold"/>
@@ -65,7 +86,8 @@
 
                     <Label Content="Номер"
                                    FontSize="20"/>
-                    <TextBox Text="3782473824729"
+                    <TextBox Text="{Binding PolisNumber,
+                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      FontSize="24"
                                      Foreground="Black"
                                      Background="White"

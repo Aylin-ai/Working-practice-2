@@ -237,6 +237,29 @@ namespace MyApplication.ViewModels
                 cmd.Parameters.AddWithValue("@date", DateOfBirthday);
 
                 cmd.ExecuteNonQuery();
+
+                sql = "select id from пользователь where номер_телефона = @number";
+                cmd.CommandText = sql;
+
+                var reader = cmd.ExecuteReader();
+
+                int userId = 0;
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        userId = reader.GetInt32(0);
+                    }
+                }
+                reader.Close();
+
+                sql = "insert into трудовая_книжка (id_пользователя) " +
+                    "values (@userId);";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@userId", userId);
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

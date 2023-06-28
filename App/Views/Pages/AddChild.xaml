@@ -107,7 +107,10 @@
                     <DatePickerTextBox 
                         Text="{Binding ChildBirthDateOfGive, Mode=TwoWay, 
                                 UpdateSourceTrigger=PropertyChanged}"
-                           FontSize="20"/>
+                           FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                     <Label Content="Дата актовой записи"
                            FontSize="20"/>
