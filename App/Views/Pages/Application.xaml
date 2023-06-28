@@ -22,17 +22,28 @@
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"
                    Margin="0 50 0 0"
-                   IsEnabled="False"/>
+                   IsEnabled="False">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToProfileCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Документы и данные"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+                <Label.InputBindings>
+                    <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding NavigateToDocumentsCommand}"/>
+                </Label.InputBindings>
+            </Label>
 
             <Label Content="Заявки"
                    FontSize="20"
                    Foreground="DarkBlue"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Left">
+            </Label>
 
         </StackPanel>
 
@@ -42,14 +53,19 @@
                 <Label Content="Подать заявку"
                            FontSize="20"
                            Foreground="DarkBlue"
-                           Margin="10"/>
+                           Margin="10">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                  Command="{Binding AddApplicationCommand}"/>
+                    </Label.InputBindings>
+                </Label>
 
                 <Label Content="Статус заявки"
                        FontSize="24"
                        FontWeight="SemiBold"
                        Margin="10"/>
 
-                <Label Content="Номер телефона"
+                <Label Content="{Binding ApplicationStatus}"
                            FontSize="20"
                            FontWeight="SemiBold"
                            Margin="10"/>
