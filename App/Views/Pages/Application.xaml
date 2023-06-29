@@ -21,8 +21,7 @@
                    FontSize="20"
                    Foreground="DarkBlue"
                    HorizontalAlignment="Left"
-                   Margin="0 50 0 0"
-                   IsEnabled="False">
+                   Margin="0 50 0 0">
                 <Label.InputBindings>
                     <MouseBinding MouseAction="LeftClick" 
                                   Command="{Binding NavigateToProfileCommand}"/>
