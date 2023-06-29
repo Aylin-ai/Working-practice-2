@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MyApplication.ViewModels
@@ -67,11 +69,23 @@ namespace MyApplication.ViewModels
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
 
-                string sql = "insert into статус_заявки (статус, id_пользователя) " +
+                string sql = "select * from статус_заявки where id_пользователя = @userId;";
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@userId", _userId);
+
+                var reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    MessageBox.Show("Заявка уже подана");
+                    return;
+                }
+                reader.Close();
+
+                sql = "insert into статус_заявки (статус, id_пользователя) " +
                     "values (@status, @userId)";
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@status", "Заявка находится на рассмотрении");
-                cmd.Parameters.AddWithValue("@userId", _userId);
 
                 cmd.ExecuteNonQuery();
                 GetApplicationStatus();

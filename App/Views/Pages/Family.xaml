@@ -122,23 +122,21 @@
 
                                 <Label Content="Дата выдачи"
                                FontSize="20"/>
-                                <DatePickerTextBox Text="{Binding MarriageDateOfGive,
-                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    FontSize="24"
-                                    Foreground="Black"
-                                    Background="White"
-                                    BorderBrush="Black"
-                                    Margin="5"/>
+                                <DatePicker SelectedDate="{Binding MarriageDateOfGive, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                                 <Label Content="Дата актовой записи"
                                FontSize="20"/>
-                                <DatePickerTextBox Text="{Binding MarriageDateOfEntry,
-                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    FontSize="24"
-                                    Foreground="Black"
-                                    Background="White"
-                                    BorderBrush="Black"
-                                    Margin="5"/>
+                                <DatePicker SelectedDate="{Binding MarriageDateOfEntry, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                                 <Label Content="Номер актовой записи"
                                FontSize="20"/>
@@ -208,23 +206,21 @@
 
                                 <Label Content="Дата выдачи"
                                FontSize="20"/>
-                                <DatePickerTextBox Text="{Binding DivorceDateOfGive,
-                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    FontSize="24"
-                                    Foreground="Black"
-                                    Background="White"
-                                    BorderBrush="Black"
-                                    Margin="5"/>
+                                <DatePicker SelectedDate="{Binding DivorceDateOfGive, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                                 <Label Content="Дата актовой записи"
                                FontSize="20"/>
-                                <DatePickerTextBox Text="{Binding DivorceDateOfEntry,
-                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    FontSize="24"
-                                    Foreground="Black"
-                                    Background="White"
-                                    BorderBrush="Black"
-                                    Margin="5"/>
+                                <DatePicker SelectedDate="{Binding DivorceDateOfEntry, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                                 <Label Content="Номер актовой записи"
                                FontSize="20"/>

@@ -33,11 +33,11 @@ namespace MyApplication.ViewModels
         private string _fio;
         public string Fio { get => _fio; set => Set(ref _fio, value); }
 
-        private char _selectedSex;
-        public char SelectedSex { get => _selectedSex; set => Set(ref _selectedSex, value); }
+        private string _selectedSex;
+        public string SelectedSex { get => _selectedSex; set => Set(ref _selectedSex, value); }
 
-        private MySqlDateTime _dateOfBirthday;
-        public MySqlDateTime DateOfBirthday { get => _dateOfBirthday; set => Set(ref _dateOfBirthday, value); }
+        private DateTime _dateOfBirthday = DateTime.Today;
+        public DateTime DateOfBirthday { get => _dateOfBirthday; set => Set(ref _dateOfBirthday, value); }
 
         #endregion
 
@@ -87,7 +87,8 @@ namespace MyApplication.ViewModels
         private void OnRegistrationCommandExecuted(object parameter)
         {
             if (TelephoneNumber == null || Email == null || Password == null || 
-                Fio == null || SelectedSex == null || DateOfBirthday.IsNull)
+                Fio == null || SelectedSex == null || 
+                DateOfBirthday.ToString("yyyy-MM-dd") == DateTime.Today.ToString("yyyy-MM-dd"))
             {
                 MessageBox.Show("Вы не ввели все данные");
             }

@@ -137,13 +137,12 @@
 
                             <Label Content="Дата выдачи"
                                FontSize="20"/>
-                            <DatePickerTextBox Text="{Binding PassportDateOfGive,
-                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    FontSize="24"
-                                    Foreground="Black"
-                                    Background="White"
-                                    BorderBrush="Black"
-                                    Margin="5"/>
+                            <DatePicker SelectedDate="{Binding PassportDateOfGive, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                             <Label Content="Место рождения"
                                FontSize="20"/>
@@ -249,13 +248,12 @@
 
                             <Label Content="Дата выдачи"
                                    FontSize="20"/>
-                            <DatePickerTextBox Text="{Binding MilitaryDateOfGive,
-                                    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    FontSize="24"
-                                    Foreground="Black"
-                                    Background="White"
-                                    BorderBrush="Black"
-                                    Margin="5"/>
+                            <DatePicker SelectedDate="{Binding MilitaryDateOfGive, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
+                        BorderBrush="Black"
+                         BorderThickness="1"
+                         Margin="5"/>
 
                         </StackPanel>
                     </Border>

@@ -53,30 +53,27 @@
 
                     <Label Content="Дата приема на работу"
                            FontSize="20"/>
-                    <DatePickerTextBox 
-                        Text="{Binding WorkerDateOfHire, Mode=TwoWay, 
-                                UpdateSourceTrigger=PropertyChanged}"
-                           FontSize="20"
+                    <DatePicker SelectedDate="{Binding WorkerDateOfHire, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
                         BorderBrush="Black"
                          BorderThickness="1"
                          Margin="5"/>
 
                     <Label Content="Дата перевода"
                            FontSize="20"/>
-                    <DatePickerTextBox 
-                        Text="{Binding WorkerDateOfReassignment, Mode=TwoWay, 
-                                UpdateSourceTrigger=PropertyChanged}"
-                           FontSize="20"
+                    <DatePicker SelectedDate="{Binding WorkerDateOfReassignment, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
                         BorderBrush="Black"
                          BorderThickness="1"
                          Margin="5"/>
 
                     <Label Content="Дата увольнения"
                            FontSize="20"/>
-                    <DatePickerTextBox 
-                        Text="{Binding WorkerDateOfFire, Mode=TwoWay, 
-                                UpdateSourceTrigger=PropertyChanged}"
-                           FontSize="20"
+                    <DatePicker SelectedDate="{Binding WorkerDateOfFire, Mode=TwoWay,
+                                     UpdateSourceTrigger=PropertyChanged}" 
+                                FontSize="20"
                         BorderBrush="Black"
                          BorderThickness="1"
                          Margin="5"/>
