@@ -238,7 +238,7 @@ namespace MyApplication.ViewModels
 
         #endregion
 
-        private void GetUserInformation(AccountStore accountStore)
+        public void GetUserInformation(AccountStore accountStore)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();

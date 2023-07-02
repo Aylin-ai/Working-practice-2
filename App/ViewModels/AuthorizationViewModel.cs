@@ -19,6 +19,18 @@ namespace MyApplication.ViewModels
         private string[] _sex = new string[2] { "М", "Ж" };
         public string[] Sex { get => _sex; }
 
+        public AuthorizationViewModel(AccountStore accountStore)
+        {
+            _accountStore = accountStore;
+
+            #region Команды
+
+            AuthorizationCommand = new LambdaCommand(OnAuthorizationCommandExecuted);
+            RegistrationCommand = new LambdaCommand(OnRegistrationCommandExecuted);
+
+            #endregion
+        }
+
         #region Данные пользователя
 
         private string _telephoneNumber;
@@ -127,18 +139,7 @@ namespace MyApplication.ViewModels
 
         #endregion
 
-        public AuthorizationViewModel(AccountStore accountStore)
-        {
-            _accountStore = accountStore;
-            #region Команды
-
-            AuthorizationCommand = new LambdaCommand(OnAuthorizationCommandExecuted);
-            RegistrationCommand = new LambdaCommand(OnRegistrationCommandExecuted);
-
-            #endregion
-        }
-
-        private Account GetUser(string number, string password)
+        public Account GetUser(string number, string password)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
@@ -182,7 +183,7 @@ namespace MyApplication.ViewModels
             }
         }
 
-        private Account GetUserWithEmail(string number, string email)
+        public Account GetUserWithEmail(string number, string email)
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();

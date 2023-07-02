@@ -105,7 +105,7 @@ namespace MyApplication.ViewModels
 
         #endregion
 
-        private void GetApplicationStatus()
+        public void GetApplicationStatus()
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();

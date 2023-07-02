@@ -115,7 +115,7 @@ namespace MyApplication.ViewModels
 
         #endregion
 
-        private void GetPolis()
+        public void GetPolis()
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             conn.Open();
